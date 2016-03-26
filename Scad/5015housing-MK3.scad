@@ -13,9 +13,14 @@ linear_extrude(height = 3, center = false, convexity = 10, $fn=100)
   import (file = "5015housing-MK3.dxf", layer = "pillar");
    
     
-    //Strany tunelu
-   translate([0,0, -14])linear_extrude(height = 14, center = false, convexity = 10, $fn=150)
-   import (file = "5015housing-MK3.dxf", layer = "Funnel");
+//Strany tunelu
+  difference(){
+   translate([0,0, -14]){
+    linear_extrude(height = 14, center = false, convexity = 10, $fn=150)import (file = "5015housing-MK3.dxf", layer = "Funnel");
+}
+// korekce vnitrku tunelu
+ translate([54.8,-22.8,-14])rotate([0,0,75])cube([5,17,14]);
+   }
     
     //vrsek tunelu
     translate([0,0, -15])linear_extrude(height = 1.5, center = false, convexity = 10, $fn=150)
@@ -48,25 +53,24 @@ translate([29-3-0.5-2,-12.5,-22-2])rotate([0,0,1])cube([6,7,9]);
     }
 translate([20,-12.5+3.5,-22+3.5-2+0.5])rotate([0,90,0])rotate([0,0,1])cylinder(r=1.6, h=20, $fn=20);
 
-
-    
+            
+}
+color("green")vyfuk();
 }
 
+module vyfuk(){
 // Adding code
 // Michal Blažek
 // 10.3.2016
-x=53.8;
-y=-31;
+x=54.3;
+y=-23.6;
 z=-15;
 color("red")
-    difference(){
-        translate([x,y,z]){
-            rotate([0,0,45]){
-                cube([7,15,18]);
-                }
-            }
-                translate([x+1.5,y,z+1]){
-                    rotate([0,0,45]){
+    difference(){translate([x,y,z])rotate([0,0,75])cube([7,11,18]);
+                
+            
+                translate([x+1.5,y+0.5,z+1]){
+                    rotate([0,0,75]){
                         cube([5,17,14]);
                 }
             }
@@ -76,29 +80,28 @@ color("red")
                 }
             }
 }
-
-x1=68.5;
-y1=-30.9;
-z1=-22;
-color("blue")
+            
+x2=68.5;
+y2=-23.9;
+z2=-22;
+color("grey")
     difference(){
-        translate([x1,y1,z1]){
+        translate([x2,y2,z2]){
             rotate([0,0,90]){
                 cube([7,15,25]);
                 }
             }
-                translate([x1-1,y1+1,z1]){
+                translate([x2-1,y2+1,z2]){
                     rotate([0,0,90]){
                         cube([5,16,23]);
                 }
             }
 }
 
-
-color("green")
-translate([54.5,-30.9   ,-22]){
+color("grey")
+%translate([54.5,y2   ,z2]){
             rotate([0,0,90]){
                 cube([7,1,8]);
                 }
             }
-}
+        }
