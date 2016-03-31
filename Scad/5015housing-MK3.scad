@@ -19,7 +19,7 @@ linear_extrude(height = 3, center = false, convexity = 10, $fn=100)
     linear_extrude(height = 14, center = false, convexity = 10, $fn=150)import (file = "5015housing-MK3.dxf", layer = "Funnel");
 }
 // korekce vnitrku tunelu
- translate([54.8,-22.8,-14])rotate([0,0,75])cube([5,17,14]);
+ translate([57.8,-22.5,-14])rotate([0,0,75])cube([5,17,15]);
    }
     
     //vrsek tunelu
@@ -62,46 +62,42 @@ module vyfuk(){
 // Adding code
 // Michal Blažek
 // 10.3.2016
-x=54.3;
-y=-23.6;
+x=53.8;
+y=-22.5;
 z=-15;
 color("red")
-    difference(){translate([x,y,z])rotate([0,0,75])cube([7,11,18]);
+    difference(){translate([x,y,z])rotate([0,0,80.3])cube([8,12,18]);
                 
             
-                translate([x+1.5,y+0.5,z+1]){
+                translate([x+3,y+0.5,z+1]){
                     rotate([0,0,75]){
                         cube([5,17,14]);
                 }
             }
-            translate([x1,y1,z1]){
-            rotate([0,0,90]){
-                cube([7,15,25]);
-                }
-            }
+
 }
             
 x2=68.5;
-y2=-23.9;
-z2=-22;
+y2=-22.5;
+z2=-15;
 color("grey")
     difference(){
         translate([x2,y2,z2]){
             rotate([0,0,90]){
-                cube([7,15,25]);
+                cube([8,15,18]);
                 }
             }
-                translate([x2-1,y2+1,z2]){
+                translate([x2-1.5,y2+1.5,z2]){
                     rotate([0,0,90]){
-                        cube([5,16,23]);
+                        cube([5,16,14]);
                 }
             }
 }
 
 color("grey")
-%translate([54.5,y2   ,z2]){
+translate([54.5,y2   ,z2]){
             rotate([0,0,90]){
-                cube([7,1,8]);
+                cube([7,1,2]);
                 }
             }
         }
