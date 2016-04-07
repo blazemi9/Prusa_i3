@@ -36,7 +36,7 @@ module x_carriage_beltcut(){
  // Cut clearing space for the belt
  translate([-38,5,7]) cube([40,13,15]);
  // Belt slit
- translate([-36,21.5+10,6]) cube([37,1,15]);
+ translate([-36,21.5+10,6]) cube([37,2,15]);
  // Smooth entrance
  translate([-36,21.5+10,14]) rotate([45,0,0]) cube([37,15,15]);
  // Teeth cuts
@@ -64,7 +64,7 @@ module x_carriage_fancy(){
  // Top right corner
  translate([13.5,-5,0]) translate([0,45+11.5,-1]) rotate([0,0,45]) translate([0,-15,0]) cube([30,30,20]);
  // Bottom right corner
- translate([0,5,0]) translate([0,-11.5,-1]) rotate([0,0,-45]) translate([0,-15,0]) cube([30,30,20]);
+ translate([20,25,0]) translate([0,-11.5,-1]) rotate([0,0,-45]) translate([0,-15,0]) cube([30,30,20]);
  // Bottom ĺeft corner
  //translate([-33,5,0]) translate([0,-11.5,-1]) rotate([0,0,-135]) translate([0,-15,0]) cube([30,30,20]);
  // Top left corner
@@ -76,10 +76,18 @@ module x_carriage(){
  difference(){
      union(){
   x_carriage_base();
-     translate([-34+4,-11,0])rotate([0,0,90])cylinder(r=5, h=12, $fn=6); 
-         
+     translate([-34+4,-11,0])rotate([0,0,90])cylinder(r=5, h=12, $fn=6);          
           translate([-34+4,-12-3.5,0])rotate([0,0,90])cylinder(r=5, h=12, $fn=6);
          
+         //Inductive holder
+         translate([-34+17+18.5+19.9,-11,0])rotate([0,0,90])cube([10,23,12]);
+         
+         translate([-34+17.5+20,-11,0])rotate([0,0,90])cylinder(r=4.5, h=12, $fn=6);          
+          translate([-34+17.5+20,-12-3.5,0])rotate([0,0,90])cylinder(r=4.5, h=12, $fn=6);
+         
+         translate([-34+31+20,-11,0])rotate([0,0,90])cylinder(r=5, h=12, $fn=6);          
+          translate([-34+31+20,-12-3.5,0])rotate([0,0,90])cylinder(r=5, h=12, $fn=6);
+         //Inductive holder --end--
          //translate([-36,-15.5,0])cube([12,4.5,12]);
      }
   x_carriage_beltcut();
@@ -88,11 +96,17 @@ module x_carriage(){
      
      
      translate([-34+4,-12-3.5,-1])rotate([0,0,0])cylinder(r=1.6, h=15, $fn=15); 
-   
-  translate([-34+4,-12-3.5,-1])rotate([0,0,90])cylinder(r=3.25, h=7, $fn=6);  
-     
-     
+  translate([-34+4,-12-3.5,-1])rotate([0,0,90])cylinder(r=3.25, h=7, $fn=6); 
+    
+    translate([-34+17.5+20,-12-3.5,-1])rotate([0,0,0])cylinder(r=1.6, h=15, $fn=15); 
+  translate([-34+17.5+20,-12-3.5,5.1])rotate([0,0,90])cylinder(r=3.25, h=7, $fn=6);
+    
+    translate([-34+31+20,-12-3.5,-1])rotate([0,0,0])cylinder(r=1.6, h=15, $fn=15); 
+  translate([-34+31+20,-12-3.5,5.1])rotate([0,0,90])cylinder(r=3.25, h=7, $fn=6);        
  }
+ 
+
+ 
 }
 
 difference(){
