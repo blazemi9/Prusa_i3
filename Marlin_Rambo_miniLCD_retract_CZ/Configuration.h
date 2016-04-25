@@ -370,7 +370,7 @@ const bool Z_MAX_ENDSTOP_INVERTING = true; // set to true to invert the logic of
     #define LEFT_PROBE_BED_POSITION 10
     #define RIGHT_PROBE_BED_POSITION 145
     #define BACK_PROBE_BED_POSITION 130
-    #define FRONT_PROBE_BED_POSITION -20
+    #define FRONT_PROBE_BED_POSITION -10
     
      // set the number of grid points per dimension
      // I wouldn't see a reason to go above 3 (=9 probing points on the bed)
@@ -392,8 +392,8 @@ const bool Z_MAX_ENDSTOP_INVERTING = true; // set to true to invert the logic of
 
 
   // these are the offsets to the probe relative to the extruder tip (Hotend - Probe)
-  #define X_PROBE_OFFSET_FROM_EXTRUDER 34
-  #define Y_PROBE_OFFSET_FROM_EXTRUDER -12
+  #define X_PROBE_OFFSET_FROM_EXTRUDER 39
+  #define Y_PROBE_OFFSET_FROM_EXTRUDER -4
   #define Z_PROBE_OFFSET_FROM_EXTRUDER 0
 
   #define Z_RAISE_BEFORE_HOMING 4       // (in mm) Raise Z before homing (G28) for Probe Clearance.
@@ -424,8 +424,8 @@ const bool Z_MAX_ENDSTOP_INVERTING = true; // set to true to invert the logic of
 
   #ifdef Z_SAFE_HOMING
 
-    #define Z_SAFE_HOMING_X_POINT (X_MAX_LENGTH/2)    // X point for Z homing when homing all axis (G28)
-    #define Z_SAFE_HOMING_Y_POINT (Y_MAX_LENGTH/2)    // Y point for Z homing when homing all axis (G28)
+    #define Z_SAFE_HOMING_X_POINT ((X_MAX_LENGTH/2)+X_MIN_POS)    // X point for Z homing when homing all axis (G28)
+    #define Z_SAFE_HOMING_Y_POINT ((Y_MAX_LENGTH/2)+Y_MIN_POS)   // Y point for Z homing when homing all axis (G28)
 
   #endif
 
